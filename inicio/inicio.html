@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add('js-enabled');</script>
+<script>
+  // Aplica o tema salvo antes da página pintar, pra não piscar claro->escuro.
+  try {
+    var savedTheme = localStorage.getItem('luma-theme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  } catch (e) {}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luma SafePin | Segurança discreta para momentos que exigem proteção</title>
+<meta name="description" content="SafePin é um dispositivo vestível de proteção pessoal que ativa alertas por comando de voz, envia localização em tempo real e conecta você à sua rede de confiança.">
+<link rel="icon" href="img/logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="inicio.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="inicio.html" class="logo" aria-label="Luma, página inicial">
+    <img src="../img/logo.png" alt="Luma" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="inicio.html" class="active" aria-current="page">Início</a></li>
+        <li><a href="../manual/manual.html">Manual</a></li>
+        <li><a href="../produto/produto.html">Produto</a></li>
+        <li><a href="../equipe/equipe.html">Quem Somos</a></li>
+        <li><a href="../referencias/referencias.html">Referências</a></li>
+        <li><a href="../jogo/jogo.html">Jogo</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+
+      <button class="icon-btn theme-toggle" id="themeToggleBtn" aria-label="Alternar modo escuro" aria-pressed="false">
+        <svg class="icon-moon" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <svg class="icon-sun" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.5M12 19v2.5M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2.5 12H5M19 12h2.5M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+
+      <div class="icon-menu">
+        <button class="icon-btn" id="bellBtn" aria-haspopup="true" aria-expanded="false" aria-label="Notificações">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="dot" aria-hidden="true"></span>
+        </button>
+        <div class="dropdown" id="bellDropdown" role="menu">
+          <p class="dropdown-title">Notificações</p>
+          <div class="notif-item">
+            <span class="notif-dot"></span>
+            <div>
+              <strong>Check-in confirmado</strong>
+              <p>Você chegou em casa com segurança às 22h14.</p>
+            </div>
+          </div>
+          <div class="notif-item">
+            <span class="notif-dot muted"></span>
+            <div>
+              <strong>Contato adicionado</strong>
+              <p>Beatriz Soares agora é sua contato de confiança.</p>
+            </div>
+          </div>
+          <div class="notif-item">
+            <span class="notif-dot muted"></span>
+            <div>
+              <strong>Bateria do SafePin</strong>
+              <p>78% — dura cerca de 4 dias no seu ritmo de uso.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero hero-split">
+    <div class="wrap hero-split-inner">
+      <div data-reveal>
+        <p class="eyebrow">Inovação em segurança</p>
+        <h1>Segurança discreta para momentos que exigem proteção.</h1>
+        <p class="hero-sub">O SafePin é um dispositivo inteligente e sutil que se integra ao seu dia a dia,
+          garantindo que você nunca esteja sozinha em situações de risco.</p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" data-open-modal="interest">Conhecer o SafePin</button>
+          <a href="../manual/manual.html" class="btn btn-secondary">Como Funciona</a>
+        </div>
+      </div>
+
+      <div class="device-mock" data-reveal>
+        <div class="device-card">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M8 14a5.5 5.5 0 018 0M5 10.8a10 10 0 0114 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="12" cy="17.2" r="1.4" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="device-status">
+          <div class="status-row"><span class="status-led"></span> DEVICE ACTIVE</div>
+          <div class="signal-bar"><span></span></div>
+          <small>Signal strength: optimal</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="problem">
+    <div class="wrap problem-inner">
+      <div class="problem-copy" data-reveal>
+        <h2>Um desafio invisível, mas real.</h2>
+        <p>A insegurança feminina não é apenas um dado, é uma sensação constante. Caminhar até o
+          carro, esperar o transporte público ou simplesmente transitar pela cidade pode gerar
+          ansiedade e medo.</p>
+        <div class="stat-banner">
+          <span class="stat-number">82%</span>
+          <p>das mulheres já sentiram insegurança ao transitar sozinhas em espaços públicos.</p>
+        </div>
+      </div>
+
+      <div class="problem-grid" data-reveal>
+        <article class="problem-card">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7c-1.2 0-2.3-.22-3.4-.6M4 4l16 16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Assédio Silencioso</span>
+        </article>
+        <article class="problem-card">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg>
+          <span>Medo em Trajetos</span>
+        </article>
+        <article class="problem-card">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Demora no Socorro</span>
+        </article>
+        <article class="problem-card">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 9l6 6M15 9l-6 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <span>Falta de Amparo</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOLUÇÃO -->
+  <section class="solution">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <h2>A Solução Luma</h2>
+        <p>Tecnologia avançada em um formato compacto que prioriza sua paz de espírito.</p>
+      </div>
+
+      <div class="solution-grid">
+        <article class="solution-card" data-reveal>
+          <span class="solution-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="9" y="2" width="6" height="12" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M5 11a7 7 0 0014 0M12 18v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Comando de Voz</h3>
+          <p>Ative alertas sem precisar das mãos, usando palavras-chave personalizadas e discretas.</p>
+        </article>
+        <article class="solution-card" data-reveal>
+          <span class="solution-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="9" y="2" width="6" height="12" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M5 11a7 7 0 0014 0" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="20" r="1.4" fill="currentColor"/></svg>
+          </span>
+          <h3>Gravação Automática</h3>
+          <p>O áudio do ambiente é gravado instantaneamente para registro e análise de contexto.</p>
+        </article>
+        <article class="solution-card" data-reveal>
+          <span class="solution-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 3l18 18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+          <h3>Alerta Silencioso</h3>
+          <p>Notifique seus contatos de emergência sem emitir sons ou luzes no dispositivo.</p>
+        </article>
+        <article class="solution-card" data-reveal>
+          <span class="solution-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg>
+          </span>
+          <h3>Localização em Tempo Real</h3>
+          <p>Seus contatos recebem sua posição exata para um acompanhamento seguro.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONFIANÇA -->
+  <section class="trust">
+    <div class="wrap trust-inner">
+      <div class="trust-card" data-reveal>
+        <span class="trust-icon">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>Compromisso com a Confiança</h3>
+        <p>Projetado com os mais altos padrões de segurança de dados e privacidade para garantir
+          que sua jornada seja protegida em todos os momentos.</p>
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 11V7a4 4 0 018 0v4" stroke="currentColor" stroke-width="1.6"/></svg>
+            <span>AES-256</span>
+          </div>
+          <div class="trust-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.6"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>PRIVACIDADE</span>
+          </div>
+          <div class="trust-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="7" cy="7" r="2.4" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="7" r="2.4" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="17" r="2.4" stroke="currentColor" stroke-width="1.6"/><path d="M9 8.5L10.5 15M15 8.5L13.5 15" stroke="currentColor" stroke-width="1.6"/></svg>
+            <span>CONEXÃO</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="why" data-reveal>
+        <h3>Por que escolher o SafePin?</h3>
+
+        <div class="why-item">
+          <span class="why-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 12.5l2.3 2.3 4.7-4.7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <strong>Discrição Absoluta</strong>
+            <p>Design minimalista que se assemelha a um acessório comum, evitando chamar atenção indesejada.</p>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <span class="why-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <strong>Rapidez de Resposta</strong>
+            <p>Acionamento instantâneo que reduz o tempo de resposta em momentos críticos.</p>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <span class="why-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="7" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M17 10l4-2v8l-4-2" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <strong>Facilidade de Uso</strong>
+            <p>Interface intuitiva e pareamento simples com seu smartphone, sem configurações complexas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PÚBLICO-ALVO -->
+  <section class="audience">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <h2>Feito para você</h2>
+        <p>Luma acompanha mulheres em todas as suas jornadas diárias.</p>
+      </div>
+
+      <div class="audience-grid">
+        <article class="audience-card" data-reveal>
+          <div class="audience-icon-wrap">
+            <span class="audience-icon">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 4L2 9l10 5 8-4.2V15" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="audience-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M3 12l4-4 4 4 8-8" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <h3>Estudantes</h3>
+          <p>Tranquilidade no trajeto entre a faculdade e o lar, especialmente no período noturno.</p>
+        </article>
+
+        <article class="audience-card" data-reveal>
+          <div class="audience-icon-wrap">
+            <span class="audience-icon">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="8" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="M8 8V6a2 2 0 012-2h4a2 2 0 012 2v2" stroke="currentColor" stroke-width="1.7"/></svg>
+            </span>
+            <span class="audience-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="white" stroke-width="2"/></svg>
+            </span>
+          </div>
+          <h3>Trabalhadoras</h3>
+          <p>Proteção adicional para quem enfrenta longos deslocamentos urbanos todos os dias.</p>
+        </article>
+
+        <article class="audience-card" data-reveal>
+          <div class="audience-icon-wrap">
+            <span class="audience-icon">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="14" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M4 14h16M8 18v2M16 18v2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="8" cy="10" r="1.2" fill="currentColor"/><circle cx="16" cy="10" r="1.2" fill="currentColor"/></svg>
+            </span>
+            <span class="audience-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+            </span>
+          </div>
+          <h3>Usuárias de Transporte</h3>
+          <p>Mais segurança em paradas de ônibus, estações de metrô e durante as viagens.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSÃO -->
+  <section class="mission-band">
+    <div class="wrap" data-reveal>
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20.5s-8-4.9-8-11A4.6 4.6 0 0112 6.5 4.6 4.6 0 0120 9.5c0 6.1-8 11-8 11z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      <blockquote>&ldquo;Oferecer uma solução acessível de apoio em situações de risco.&rdquo;</blockquote>
+      <p>Nossa missão é democratizar a segurança feminina através da tecnologia que acolhe e protege.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-brand">Luma | SafePin</p>
+      <p class="footer-copy">© 2026 Luma Safety Solutions. Todos os direitos reservados.</p>
+    </div>
+    <div class="footer-right">
+      <nav aria-label="Links do rodapé">
+        <a href="#">Privacidade</a>
+        <a href="#">Suporte</a>
+        <a href="#">Termos de Uso</a>
+      </nav>
+      <div class="footer-social">
+        <a href="#" aria-label="Site em outro idioma">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" stroke="currentColor" stroke-width="1.6"/></svg>
+        </a>
+        <a href="#" aria-label="Compartilhar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="12" r="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="19" r="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M8.2 10.8L15.8 6.2M8.2 13.2l7.6 4.6" stroke="currentColor" stroke-width="1.6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL: cadastro / compra / consultora (mesma base, conteúdo trocado via JS) -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
+    <h3 id="modalTitle">Título</h3>
+    <p id="modalSubtitle" class="modal-subtitle"></p>
+    <form id="modalForm" novalidate>
+      <label>
+        Nome
+        <input type="text" name="name" required minlength="2" placeholder="Seu nome completo">
+        <span class="field-error"></span>
+      </label>
+      <label>
+        E-mail
+        <input type="email" name="email" required placeholder="voce@email.com">
+        <span class="field-error"></span>
+      </label>
+      <label id="phoneField">
+        Telefone <span class="optional">(opcional)</span>
+        <input type="tel" name="phone" placeholder="(11) 90000-0000">
+      </label>
+      <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+    </form>
+    <div class="modal-success" id="modalSuccess">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <p id="modalSuccessText">Recebemos sua solicitação!</p>
+    </div>
+  </div>
+</div>
+
+<button class="scroll-top" id="scrollTopBtn" aria-label="Voltar ao topo">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="inicio.js"></script>
+</body>
+</html>

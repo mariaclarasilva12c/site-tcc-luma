@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add('js-enabled');</script>
+<script>
+  // Aplica o tema salvo antes da página pintar, pra não piscar claro->escuro.
+  try {
+    var savedTheme = localStorage.getItem('luma-theme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  } catch (e) {}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual de Utilização | Luma SafePin</title>
+<meta name="description" content="Aprenda a configurar o SafePin em poucos passos: pareamento, contatos de emergência e frase de ativação por voz.">
+<link rel="icon" href="img/logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="manual.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="../inicio/inicio.html" class="logo" aria-label="Luma, página inicial">
+      <img src="../img/logo.png" alt="Luma" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="../inicio/inicio.html">Início</a></li>
+        <li><a href="manual.html" class="active" aria-current="page">Manual</a></li>
+        <li><a href="../produto/produto.html">Produto</a></li>
+        <li><a href="../equipe/equipe.html">Quem Somos</a></li>
+        <li><a href="../referencias/referencias.html">Referências</a></li>
+        <li><a href="../jogo/jogo.html">Jogo</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+
+      <button class="icon-btn theme-toggle" id="themeToggleBtn" aria-label="Alternar modo escuro" aria-pressed="false">
+        <svg class="icon-moon" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <svg class="icon-sun" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.5M12 19v2.5M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2.5 12H5M19 12h2.5M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+
+      <div class="icon-menu">
+        <button class="icon-btn" id="bellBtn" aria-haspopup="true" aria-expanded="false" aria-label="Notificações">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="dot" aria-hidden="true"></span>
+        </button>
+        <div class="dropdown" id="bellDropdown" role="menu">
+          <p class="dropdown-title">Notificações</p>
+          <div class="notif-item">
+            <span class="notif-dot"></span>
+            <div>
+              <strong>Check-in confirmado</strong>
+              <p>Você chegou em casa com segurança às 22h14.</p>
+            </div>
+          </div>
+          <div class="notif-item">
+            <span class="notif-dot muted"></span>
+            <div>
+              <strong>Contato adicionado</strong>
+              <p>Beatriz Soares agora é sua contato de confiança.</p>
+            </div>
+          </div>
+          <div class="notif-item">
+            <span class="notif-dot muted"></span>
+            <div>
+              <strong>Bateria do SafePin</strong>
+              <p>78% — dura cerca de 4 dias no seu ritmo de uso.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="manual-hero">
+    <div class="wrap" data-reveal>
+      <h1>Manual de Utilização</h1>
+      <p>Aprenda a configurar sua proteção em poucos passos. O Luma foi desenhado para ser
+        intuitivo e estar sempre pronto quando você precisar.</p>
+    </div>
+  </section>
+
+  <!-- PASSOS -->
+  <section class="steps">
+    <div class="wrap steps-grid">
+
+      <!-- Passo 1 -->
+      <article class="step-card" data-reveal>
+        <span class="step-number">1</span>
+        <h2>Conectar ao celular</h2>
+        <p>Ative o Bluetooth do seu smartphone e abra o app Luma. Pressione o botão do SafePin
+          por 5 segundos até que o LED pulse suavemente em rosa.</p>
+
+        <div class="step-illustration pairing-illustration">
+          <div class="pairing-row">
+            <span class="pairing-icon">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M7 7l10 10-5 5V2l5 5L7 17" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="pairing-dot">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="1.8"/></svg>
+            </span>
+          </div>
+          <p class="pairing-caption">Pareando dispositivos&hellip;</p>
+        </div>
+      </article>
+
+      <!-- Como funciona -->
+      <aside class="side-card how-it-works" data-reveal>
+        <h2>Como Funciona</h2>
+        <div class="flow-diagram">
+          <div class="flow-step">
+            <span class="flow-icon flow-icon--wine">SOS</span>
+            <small>SAFEPIN</small>
+          </div>
+          <span class="flow-line" aria-hidden="true"></span>
+          <div class="flow-step">
+            <span class="flow-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="2.2" stroke="currentColor" stroke-width="1.6"/><circle cx="5" cy="6" r="1.8" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="6" r="1.8" stroke="currentColor" stroke-width="1.6"/><circle cx="5" cy="18" r="1.8" stroke="currentColor" stroke-width="1.6"/><circle cx="19" cy="18" r="1.8" stroke="currentColor" stroke-width="1.6"/><path d="M9.9 10.7L6.5 7.4M14.1 10.7l3.4-3.3M9.9 13.3l-3.4 3.3M14.1 13.3l3.4 3.3" stroke="currentColor" stroke-width="1.5"/></svg>
+            </span>
+            <small>LUMA CLOUD</small>
+          </div>
+          <span class="flow-line" aria-hidden="true"></span>
+          <div class="flow-step">
+            <span class="flow-icon flow-icon--light">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.2 7-11.5A7 7 0 005 9.5C5 14.8 12 21 12 21z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg>
+            </span>
+            <small>CONTATOS</small>
+          </div>
+        </div>
+        <div class="info-box">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 11v5.5M12 8v.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <p>Nossa tecnologia de baixo consumo garante que seu SafePin esteja sempre operacional,
+            utilizando BLE (Bluetooth Low Energy).</p>
+        </div>
+      </aside>
+
+      <!-- Passo 2 -->
+      <article class="step-card" data-reveal>
+        <span class="step-number">2</span>
+        <h2>Cadastrar contatos de emergência</h2>
+        <p>Selecione até 5 pessoas de sua confiança. Elas receberão um link com sua localização
+          em tempo real.</p>
+
+        <div class="contact-grid">
+          <div class="contact-chip">
+            <span class="contact-chip-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="currentColor" stroke-width="1.7"/><path d="M5 20c1.4-4 4-6 7-6s5.6 2 7 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </span>
+            <div>
+              <strong>Família</strong>
+              <span>3 contatos ativos</span>
+            </div>
+          </div>
+          <div class="contact-chip">
+            <span class="contact-chip-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.7"/><circle cx="17" cy="9" r="2.4" stroke="currentColor" stroke-width="1.7"/><path d="M3 20c1.2-3.6 3.4-5.4 6-5.4s4.8 1.8 6 5.4M15.5 14.8c2 .3 3.4 1.9 4.3 4.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </span>
+            <div>
+              <strong>Amigos</strong>
+              <span>2 contatos ativos</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Cuidados essenciais -->
+      <aside class="side-card care-card" data-reveal>
+        <h2>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          Cuidados Essenciais
+        </h2>
+
+        <div class="care-item">
+          <span class="care-icon">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="7" y="6" width="10" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M10 6V4h4v2" stroke="currentColor" stroke-width="1.6"/><path d="M9.5 17l1.5-3 1.5 2 1-1.5 1 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <strong>Bateria</strong>
+            <p>Carregue o SafePin uma vez a cada 15 dias. O app avisará quando estiver abaixo de 20%.</p>
+          </div>
+        </div>
+
+        <div class="care-item">
+          <span class="care-icon">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M9 12a3 3 0 013-3h4a3 3 0 010 6h-1M15 12a3 3 0 01-3 3H8a3 3 0 010-6h1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <div>
+            <strong>Conexão</strong>
+            <p>Mantenha o Bluetooth sempre ligado para que o SafePin possa se comunicar com o smartphone.</p>
+          </div>
+        </div>
+
+        <div class="care-item">
+          <span class="care-icon">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <strong>Atualizações</strong>
+            <p>Mantenha o aplicativo Luma atualizado na loja oficial para novos recursos de segurança.</p>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Passo 3 -->
+      <article class="step-card" data-reveal>
+        <span class="step-number">3</span>
+        <h2>Configurar frase de ativação</h2>
+        <p>Grave uma frase curta e discreta. O sistema reconhecerá sua voz em qualquer situação.</p>
+
+        <div class="step-illustration voice-illustration">
+          <span class="voice-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="9" y="2" width="6" height="12" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M5 11a7 7 0 0014 0M12 18v4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+          <p class="voice-caption">&ldquo;Frase registrada com sucesso&rdquo;</p>
+        </div>
+      </article>
+
+      <!-- Vídeo demonstrativo -->
+      <aside class="side-card video-card" data-reveal>
+        <button class="video-placeholder" type="button" aria-label="Ver vídeo de demonstração (em breve)">
+          <span class="video-play">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor"/></svg>
+          </span>
+          <span class="video-label">Ver demonstração</span>
+          <span class="video-note">Vídeo em produção — espaço reservado para a demonstração do protótipo</span>
+        </button>
+      </aside>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-brand">Luma | SafePin</p>
+      <p class="footer-copy">© 2026 Luma Safety Solutions. Todos os direitos reservados.</p>
+    </div>
+    <div class="footer-right">
+      <nav aria-label="Links do rodapé">
+        <a href="#">Privacidade</a>
+        <a href="#">Suporte</a>
+        <a href="#">Termos de Uso</a>
+      </nav>
+      <div class="footer-social">
+        <a href="#" aria-label="Site em outro idioma">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" stroke="currentColor" stroke-width="1.6"/></svg>
+        </a>
+        <a href="#" aria-label="Compartilhar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="12" r="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="19" r="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M8.2 10.8L15.8 6.2M8.2 13.2l7.6 4.6" stroke="currentColor" stroke-width="1.6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTopBtn" aria-label="Voltar ao topo">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="manual.js"></script>
+</body>
+</html>
