@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <script>document.documentElement.classList.add('js-enabled');</script>
 <script>
-  // Aplica o tema salvo antes da página pintar, pra não piscar claro->escuro.
   try {
     var savedTheme = localStorage.getItem('luma-theme');
     var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -16,11 +15,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Luma SafePin | Segurança discreta para momentos que exigem proteção</title>
 <meta name="description" content="SafePin é um dispositivo vestível de proteção pessoal que ativa alertas por comando de voz, envia localização em tempo real e conecta você à sua rede de confiança.">
-<link rel="icon" href="./img/logo-icon.png">
+<link rel="icon" href="/img/logo-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./inicio/style.css">
+
+<!-- Caminhos absolutos ajustados para carregar a partir da raiz -->
+<link rel="stylesheet" href="/inicio/style.css">
   
 </head>
 <body>
@@ -30,18 +31,18 @@
 <!-- HEADER -->
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
-    <a href="index.html" class="logo" aria-label="Luma, página inicial">
-      <img src="./img/logo.png" alt="Luma" class="logo-img">
+    <a href="/index.html" class="logo" aria-label="Luma, página inicial">
+      <img src="/img/logo.png" alt="Luma" class="logo-img" style="max-height: 45px; max-width: 180px; width: auto; height: auto;">
     </a>
 
     <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
       <ul>
-        <li><a href="index.html" class="active" aria-current="page">Início</a></li>
-        <li><a href="./manual/manual.html">Manual</a></li>
-        <li><a href="./produto/produto.html">Produto</a></li>
-        <li><a href="./equipe/equipe.html">Quem Somos</a></li>
-        <li><a href="./referencias/referencias.html">Referências</a></li>
-        <li><a href="./jogo/jogo.html">Jogo</a></li>
+        <li><a href="/index.html" class="active" aria-current="page">Início</a></li>
+        <li><a href="/manual/manual.html">Manual</a></li>
+        <li><a href="/produto/produto.html">Produto</a></li>
+        <li><a href="/equipe/equipe.html">Quem Somos</a></li>
+        <li><a href="/referencias/referencias.html">Referências</a></li>
+        <li><a href="/jogo/jogo.html">Jogo</a></li>
       </ul>
     </nav>
 
@@ -102,7 +103,7 @@
           garantindo que você nunca esteja sozinha em situações de risco.</p>
         <div class="hero-actions">
           <button class="btn btn-primary" data-open-modal="interest">Conhecer o SafePin</button>
-          <a href="./manual/manual.html" class="btn btn-secondary">Como Funciona</a>
+          <a href="/manual/manual.html" class="btn btn-secondary">Como Funciona</a>
         </div>
       </div>
 
@@ -366,6 +367,4 @@
       </label>
       <label id="phoneField">
         Telefone <span class="optional">(opcional)</span>
-        <input type="tel" name="phone" placeholder="(11) 90000-0000">
-      </label>
-      <button type="submit" class="
+        <input type="tel" name="phone" placeholder="(11) 90000-00
