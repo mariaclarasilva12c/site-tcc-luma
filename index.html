@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <script>document.documentElement.classList.add('js-enabled');</script>
 <script>
+  // Aplica o tema salvo antes da página pintar, pra não piscar claro->escuro.
   try {
     var savedTheme = localStorage.getItem('luma-theme');
     var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -19,14 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<<<<<<< HEAD
 <link rel="stylesheet" href="style.css">
-=======
-
-  <link rel="stylesheet" href="style.css">
-  
-  
->>>>>>> 182b770dbe037fce0906473402803088e28471a3
 </head>
 <body>
 
@@ -35,18 +29,18 @@
 <!-- HEADER -->
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
-    <a href="index.html" class="logo" aria-label="Luma, página inicial">
-      <img src="img/logo.png" alt="Luma" class="logo-img">
+    <a href="inicio.html" class="logo" aria-label="Luma, página inicial">
+    <img src="../img/logo.png" alt="Luma" class="logo-img">
     </a>
 
     <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
       <ul>
-        <li><a href="index.html" class="active" aria-current="page">Início</a></li>
-        <li><a href="manual/manual.html">Manual</a></li>
-        <li><a href="produto/produto.html">Produto</a></li>
-        <li><a href="quemsomos/equipe.html">Quem Somos</a></li>
-        <li><a href="referencias/referencias.html">Referências</a></li>
-        <li><a href="jogo/jogo.html">Jogo</a></li>
+        <li><a href="inicio.html" class="active" aria-current="page">Início</a></li>
+        <li><a href="../manual/manual.html">Manual</a></li>
+        <li><a href="../produto/produto.html">Produto</a></li>
+        <li><a href="../equipe/equipe.html">Quem Somos</a></li>
+        <li><a href="../referencias/referencias.html">Referências</a></li>
+        <li><a href="../jogo/jogo.html">Jogo</a></li>
       </ul>
     </nav>
 
@@ -107,7 +101,7 @@
           garantindo que você nunca esteja sozinha em situações de risco.</p>
         <div class="hero-actions">
           <button class="btn btn-primary" data-open-modal="interest">Conhecer o SafePin</button>
-          <a href="manual/manual.html" class="btn btn-secondary">Como Funciona</a>
+          <a href="../manual/manual.html" class="btn btn-secondary">Como Funciona</a>
         </div>
       </div>
 
@@ -352,7 +346,7 @@
   </div>
 </footer>
 
-<!-- MODAL -->
+<!-- MODAL: cadastro / compra / consultora (mesma base, conteúdo trocado via JS) -->
 <div class="modal-backdrop" id="modalBackdrop">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
@@ -373,19 +367,19 @@
         Telefone <span class="optional">(opcional)</span>
         <input type="tel" name="phone" placeholder="(11) 90000-0000">
       </label>
-      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="submit" class="btn btn-primary btn-block">Enviar</button>
     </form>
+    <div class="modal-success" id="modalSuccess">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6"/><path d="M8 12.5l2.5 2.5L16 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <p id="modalSuccessText">Recebemos sua solicitação!</p>
+    </div>
   </div>
 </div>
 
-<<<<<<< HEAD
 <button class="scroll-top" id="scrollTopBtn" aria-label="Voltar ao topo">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 
 <script src="index.js"></script>
-=======
-  <script src="index.js"></script>
->>>>>>> 182b770dbe037fce0906473402803088e28471a3
 </body>
 </html>
