@@ -1,1 +1,216 @@
-/* cole aq */
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add('js-enabled');</script>
+<script>
+  try {
+    var savedTheme = localStorage.getItem('luma-theme');
+    var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  } catch (e) {}
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iniciativa Amber | Jogo Luma SafePin</title>
+<meta name="description" content="Iniciativa Amber: um jogo narrativo sobre a Luma SafePin, ambientado em Nova Luz, onde cada decisão pode salvar uma vida.">
+<link rel="icon" href="img/logo-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="jogo.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+<!-- HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="../inicio/inicio.html" class="logo" aria-label="Luma, página inicial">
+      <img src="../img/logo-icon.png" alt="Luma" class="logo-img">
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Navegação principal">
+      <ul>
+        <li><a href="/index.html">Início</a></li>
+        <li><a href="../manual/manual.html">Manual</a></li>
+        <li><a href="../produto/produto.html">Produto</a></li>
+        <li><a href="../equipe/equipe.html">Quem Somos</a></li>
+        <li><a href="../referencias/referencias.html">Referências</a></li>
+        <li><a href="jogo.html" class="active" aria-current="page">Jogo</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+
+      <button class="icon-btn theme-toggle" id="themeToggleBtn" aria-label="Alternar modo escuro" aria-pressed="false">
+        <svg class="icon-moon" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <svg class="icon-sun" width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.5M12 19v2.5M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2.5 12H5M19 12h2.5M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+
+      <div class="icon-menu">
+        <button class="icon-btn" id="bellBtn" aria-haspopup="true" aria-expanded="false" aria-label="Notificações">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="dot" aria-hidden="true"></span>
+        </button>
+        <div class="dropdown" id="bellDropdown" role="menu">
+          <p class="dropdown-title">Notificações</p>
+          <div class="notif-item">
+            <span class="notif-dot"></span>
+            <div>
+              <strong>Check-in confirmado</strong>
+              <p>Você chegou em casa com segurança às 22h14.</p>
+            </div>
+          </div>
+          <div class="notif-item">
+            <span class="notif-dot muted"></span>
+            <div>
+              <strong>Contato adicionado</strong>
+              <p>Beatriz Soares agora é sua contato de confiança.</p>
+            </div>
+          </div>
+          <div class="notif-item">
+            <span class="notif-dot muted"></span>
+            <div>
+              <strong>Bateria do SafePin</strong>
+              <p>78% — dura cerca de 4 dias no seu ritmo de uso.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO CYBERPUNK -->
+  <section class="game-hero">
+    <div class="skyline" aria-hidden="true">
+      <span class="building b1"></span>
+      <span class="building b2"></span>
+      <span class="building b3"></span>
+      <span class="building b4"></span>
+      <span class="building b5"></span>
+      <span class="building b6"></span>
+      <span class="neon-beam"></span>
+      <span class="neon-beam beam2"></span>
+    </div>
+    <div class="floor" aria-hidden="true"></div>
+
+    <div class="wrap game-hero-inner" data-reveal>
+      <h1>Iniciativa <span>Amber</span></h1>
+      <p>Em um futuro próximo, Nova Luz enfrenta o aumento da violência urbana. Para conter os
+        crimes, nasce a Iniciativa Âmbar, um sistema experimental de proteção feminina que leva
+        as agentes ao confronto contra o misterioso &ldquo;Observador&rdquo;.</p>
+    </div>
+  </section>
+
+  <!-- HISTÓRIA -->
+  <section class="lore">
+    <div class="wrap lore-grid">
+      <div data-reveal>
+        <h2>História do Jogo</h2>
+        <p>Em uma metrópole futurista próxima ao ano de 2030, o aumento da violência urbana leva
+          à criação da Iniciativa Âmbar, um sistema experimental de proteção feminina que utiliza
+          broches de emergência para localizar vítimas e identificar suspeitos.</p>
+        <p>O jogador assume o papel de agentes especializadas, cada uma com habilidades únicas,
+          responsáveis por investigar chamados em ambientes urbanos cheios de NPCs e situações
+          imprevisíveis. O foco do jogo está na tensão psicológica, observação e tomada de
+          decisões rápidas, onde agir impulsivamente pode colocar vidas inocentes em risco.</p>
+        <p>Conforme os casos avançam, surge &ldquo;O Observador&rdquo;, um criminoso capaz de
+          manipular o próprio sistema da Iniciativa Âmbar, transformando cada missão em um
+          desafio psicológico cada vez mais perigoso. As escolhas do jogador afetam diretamente a
+          história, os resgates e os diferentes finais do jogo.</p>
+      </div>
+
+      <div class="lore-art" data-reveal aria-hidden="true">
+        <div class="gem-wrap">
+          <span class="gem"></span>
+          <span class="spark s1"></span>
+          <span class="spark s2"></span>
+          <span class="spark s3"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VÍDEO DEMO -->
+  <section class="game-demo">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <h2>Vídeo Demo</h2>
+        <p>Mergulhe na tensão psicológica das ruas de Nova Luz, onde cada decisão pode salvar uma
+          vida — ou condenar um inocente.</p>
+      </div>
+
+      <div class="player" data-reveal>
+        <div class="player-scene" aria-hidden="true">
+          <span class="p-building pb1"></span>
+          <span class="p-building pb2"></span>
+          <span class="p-building pb3"></span>
+          <span class="p-neon n1"></span>
+          <span class="p-neon n2"></span>
+        </div>
+        <button class="player-play" type="button" aria-label="Reproduzir vídeo de demonstração (em breve)">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5-11-6.5z" fill="currentColor"/></svg>
+        </button>
+        <p class="player-note">Vídeo em produção — espaço reservado para a demonstração do jogo</p>
+
+        <div class="player-controls" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 9v6h4l5 4V5L8 9H4z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M17 9a4 4 0 010 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <span class="player-progress"><span></span></span>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 9V5h4M20 9V5h-4M4 15v4h4M20 15v4h-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+      <div class="play-cta" data-reveal>
+        <a href="#" class="btn btn-primary" id="playNowBtn">
+          Jogue Agora!
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-brand">Luma | SafePin</p>
+      <p class="footer-copy">© 2026 Luma Safety Solutions. Todos os direitos reservados.</p>
+    </div>
+    <div class="footer-right">
+      <nav aria-label="Links do rodapé">
+        <a href="#">Privacidade</a>
+        <a href="#">Suporte</a>
+        <a href="#">Termos de Uso</a>
+      </nav>
+      <div class="footer-social">
+        <a href="#" aria-label="Site em outro idioma">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3a14 14 0 010 18M12 3a14 14 0 000 18" stroke="currentColor" stroke-width="1.6"/></svg>
+        </a>
+        <a href="#" aria-label="Compartilhar">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="18" cy="5" r="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="6" cy="12" r="2.5" stroke="currentColor" stroke-width="1.6"/><circle cx="18" cy="19" r="2.5" stroke="currentColor" stroke-width="1.6"/><path d="M8.2 10.8L15.8 6.2M8.2 13.2l7.6 4.6" stroke="currentColor" stroke-width="1.6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="scroll-top" id="scrollTopBtn" aria-label="Voltar ao topo">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="jogo.js"></script>
+</body>
+</html>
