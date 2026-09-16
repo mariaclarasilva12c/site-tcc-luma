@@ -303,6 +303,20 @@ h1,h2,h3{ font-family:var(--font-display); color:var(--ink); margin:0; line-heig
 .t-card--stars .t-text, .t-card--simple .t-text{ font-size:.98rem; color:var(--ink-soft); font-style:italic; }
 .t-card--quote .t-text{ font-size:1.2rem; line-height:1.5; font-weight:500; }
 
+.component-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch; /* Garante que todos os cards da mesma linha tenham a mesma altura */
+}
+
+.component-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%; /* Padroniza a altura de todos os cards */
+}
+
 .stars{ display:flex; gap:4px; color:var(--gold-star); }
 
 .t-person{ display:flex; align-items:center; gap:12px; }
