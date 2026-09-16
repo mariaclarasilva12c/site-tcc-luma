@@ -310,6 +310,15 @@ h1,h2,h3{ font-family:var(--font-display); color:var(--ink); margin:0; line-heig
   align-items: stretch; /* Garante que todos os cards da mesma linha tenham a mesma altura */
 }
 
+/* Padroniza o tamanho dos ícones dentro dos cards */
+.component-icon img,
+.component-card img {
+  width: 32px;         /* Largura fixa desejada (ex: 24px, 32px ou 40px) */
+  height: 32px;        /* Altura fixa desejada */
+  object-fit: contain; /* Impede que a imagem fique esticada ou deformada */
+  display: block;
+} 
+
 .component-card {
   display: flex;
   align-items: center;
