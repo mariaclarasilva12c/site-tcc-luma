@@ -1,8 +1,4 @@
-* ============================================================
-   LUMA | SafePin — main.js
-   Interações: header on scroll, menu mobile, dropdowns,
-   modal com validação de formulário, reveal on scroll, scroll-to-top
-   ============================================================ */
+
 (function () {
   'use strict';
 
