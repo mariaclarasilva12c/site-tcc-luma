@@ -722,3 +722,10 @@ h1,h2,h3{ font-family:var(--font-display); color:var(--ink); margin:0; line-heig
   .contact-grid{ grid-template-columns:1fr; }
   .flow-diagram{ flex-wrap:nowrap; }
 }
+/* Manual — ajustes mobile (≤ 860px) */
+@media (max-width:860px){
+  .manual-hero{ padding:28px 0 8px; text-align:left; }
+  .manual-hero h1{ font-size:1.7rem; }
+  .steps{ padding-top:20px; }
+  .step-card,.side-card{ box-shadow:var(--shadow-sm); }
+}
