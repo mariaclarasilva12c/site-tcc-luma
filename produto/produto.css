@@ -732,7 +732,7 @@ h1,h2,h3{ font-family:var(--font-display); color:var(--ink); margin:0; line-heig
    ============================================================ */
 @media (max-width:980px){
   .testimonial-grid{ grid-template-columns:1fr; }
-  .t-card--quote,.t-card--stars,.t-card--simple,.t-card--feature{ grid-column:1; }
+  .t-card--quote,.t-card--stars,.t-card--simple,.t-card--feature{ grid-column:1; grid-row:auto; }
   .t-card--feature{ flex-direction:column; }
   .feature-img{ width:100%; height:200px; }
   .security-grid{ grid-template-columns:1fr; }
@@ -753,6 +753,11 @@ h1,h2,h3{ font-family:var(--font-display); color:var(--ink); margin:0; line-heig
 
   .stat-grid{ grid-template-columns:1fr; }
   .component-grid{ grid-template-columns:1fr 1fr; }
+
+  .team-hero-inner{ grid-template-columns:1fr; }
+  .team-hero-art{ order:-1; aspect-ratio:16/9; }
+  .team-grid{ grid-template-columns:1fr 1fr; }
+  .contact-inner{ grid-template-columns:1fr; }
 }
 
 @media (max-width:860px){
@@ -772,6 +777,50 @@ h1,h2,h3{ font-family:var(--font-display); color:var(--ink); margin:0; line-heig
   .main-nav a.active::after{ display:none; }
   .hamburger{ display:flex; }
   .btn-sm{ display:none; }
+
+  /* ---- Só na página Quem Somos: header com seta+título, carrossel do
+     time, formulário com linha, e barra de navegação fixa embaixo ---- */
+  .logo{ display:none; }
+  .mobile-back{ display:flex; }
+  .mobile-page-title{ display:block; }
+
+  .team-grid{
+    display:flex; gap:16px; overflow-x:auto; scroll-snap-type:x mandatory;
+    padding-bottom:6px; margin:0 -20px; padding-left:20px; padding-right:20px;
+  }
+  .team-card{
+    flex:0 0 78%; scroll-snap-align:start;
+  }
+
+  .contact-form-card form input,
+  .contact-form-card form textarea{
+    border:none; border-bottom:1.5px solid var(--border); border-radius:0;
+    background:transparent; padding:8px 2px;
+  }
+  .contact-form-card form input:focus,
+  .contact-form-card form textarea:focus{ border-bottom-color:var(--wine); }
+  .contact-form-card{ background:transparent; margin:0; padding:0; box-shadow:none; }
+  .contact-copy{ padding:32px 20px 0; }
+  .contact-inner{ background:transparent; }
+  .contact-form-card h2{ display:none; }
+
+  main{ padding-bottom:86px; }
+  .mobile-tabbar{
+    display:flex; position:fixed; left:0; right:0; bottom:0; z-index:150;
+    background:var(--white); border-top:1px solid var(--border);
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+    justify-content:space-around; align-items:center;
+  }
+  .mobile-tabbar a{
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+    color:var(--muted); font-size:.68rem; font-weight:600; flex:1;
+  }
+  .mobile-tabbar a.active{ color:var(--wine-dark); }
+  .tab-pill{
+    display:flex; flex-direction:column; align-items:center; gap:2px;
+    background:var(--wine); color:#fff; padding:8px 18px 6px; border-radius:var(--radius-pill);
+    margin-top:-22px; box-shadow:var(--shadow-sm);
+  }
 }
 
 @media (max-width:640px){
@@ -797,6 +846,10 @@ h1,h2,h3{ font-family:var(--font-display); color:var(--ink); margin:0; line-heig
   .component-grid{ grid-template-columns:1fr; }
   .total-banner{ flex-direction:column; align-items:flex-start; padding:28px 24px; }
   .total-value{ font-size:2rem; }
+
+  .team-grid{ grid-template-columns:1fr; }
+  .contact-copy{ padding:32px 24px; }
+  .contact-form-card{ margin:0 16px 16px; padding:26px 22px; }
 }
 
 /* Impressão (usado pelo botão "Exportar PDF") */
@@ -807,48 +860,26 @@ h1,h2,h3{ font-family:var(--font-display); color:var(--ink); margin:0; line-heig
 }
 
 /* ============================================================
-   MOBILE (≤ 860px) — estrutura de app: cabeçalho com seta + título,
-   barra de navegação fixa embaixo e rodapé com respiro.
+   MOBILE — cards do time estilo app (foto dentro do card, com
+   bordas arredondadas, nome e ícones embaixo). Só ≤ 860px.
+   A foto continua vindo de img/icon-<nome>.jpg: é só trocar o arquivo.
    ============================================================ */
-.mobile-back,.mobile-page-title,.mobile-tabbar{ display:none; }
-
 @media (max-width:860px){
-  :root{ --header-h:64px; }
-  body{ padding-bottom:84px; }
-  .site-header{ border-bottom:1px solid var(--border); }
-  .header-inner{ gap:12px; }
-
-  .logo{ display:none; }
-  .mobile-back{
-    display:flex; align-items:center; justify-content:center;
-    width:36px; height:36px; border-radius:50%; color:var(--ink); flex-shrink:0;
+  .team-grid{ gap:14px; }
+  .team-card{
+    flex:0 0 84%; padding:14px; border-radius:22px;
+    background:var(--white); border:1px solid var(--border);
   }
-  .mobile-back:hover{ background:var(--card); }
-  .mobile-page-title{
-    display:block; flex:1; text-align:left;
-    font-family:var(--font-display); font-weight:700; font-size:1.1rem; color:var(--ink);
+  .team-avatar{
+    width:100%; height:auto; aspect-ratio:1/1;
+    border-radius:14px; object-fit:cover; object-position:center top;
   }
-  .site-footer{ margin-top:28px; }
-
-  .mobile-tabbar{
-    display:flex; position:fixed; left:0; right:0; bottom:0; z-index:150;
-    background:var(--card); border-radius:24px 24px 0 0;
-    border-top:1px solid var(--border); box-shadow:0 -6px 20px rgba(122,45,65,.08);
-    padding:10px 12px calc(10px + env(safe-area-inset-bottom));
-    justify-content:space-around; align-items:center;
-  }
-  .mobile-tabbar a{
-    display:flex; flex-direction:column; align-items:center; gap:4px; flex:1;
-    color:var(--muted); font-size:.68rem; font-weight:600; letter-spacing:.02em;
-  }
-  .mobile-tabbar a.active{ color:var(--wine-dark); }
-  .tab-pill{
-    display:flex; flex-direction:column; align-items:center; gap:3px;
-    background:var(--wine); color:#fff; padding:9px 20px 7px; border-radius:var(--radius-pill);
-    box-shadow:var(--shadow-sm);
-  }
-  .scroll-top{ bottom:96px; }
+  .team-card-body{ padding:16px 4px 4px; }
+  .team-card h3{ font-size:1.05rem; margin-bottom:10px; }
+  .team-card p{ display:none; }            /* o app mostra só nome + ícones */
+  .section-title{ font-size:1.5rem; }
 }
+:root[data-theme="dark"] .team-card{ background:#120d0f; border-color:var(--border); }
 
 /* ============================================================
    BARRA INFERIOR MOBILE — versão única (idêntica em todas as páginas)
