@@ -1947,3 +1947,29 @@ h1,h2,h3{ font-family:var(--font-display); color:var(--ink); margin:0; line-heig
   .section-title{ font-size:1.5rem; }
 }
 :root[data-theme="dark"] .team-card{ background:#120d0f; border-color:var(--border); }
+
+/* ============================================================
+   BARRA INFERIOR MOBILE — versão única (idêntica em todas as páginas)
+   ============================================================ */
+@media (max-width:860px){
+  .mobile-tabbar{
+    box-sizing:border-box; height:calc(76px + env(safe-area-inset-bottom));
+    background:var(--card); border-radius:24px 24px 0 0;
+    border-top:1px solid var(--border); padding:0 12px env(safe-area-inset-bottom);
+    align-items:center;
+  }
+  .mobile-tabbar a{ gap:4px; font-size:.68rem; font-weight:600; letter-spacing:.02em; }
+  .mobile-tabbar a > svg{ width:21px; height:21px; }
+  .tab-pill{ width:78px; margin:0; padding:9px 0 7px; gap:3px; }
+  .tab-pill svg{ width:19px; height:19px; }
+}
+
+/* ============================================================
+   CABEÇALHO MOBILE DAS SUBPÁGINAS — versão única (igual em todas)
+   ============================================================ */
+@media (max-width:860px){
+  :root{ --header-h:64px; }
+  body{ padding-bottom:84px; }
+  main{ padding-bottom:0; }
+  .mobile-page-title{ text-align:center; font-size:1.05rem; font-weight:700; }
+}
